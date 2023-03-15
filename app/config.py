@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+import os
 
-DATABASE_URL = 'secret.DATABASE_CONNECTION'
+DATABASE_URL = os.environ.get("DATABASE_CONNECTION")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
