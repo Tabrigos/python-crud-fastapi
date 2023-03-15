@@ -31,6 +31,8 @@ jobs:
       -
         name: Build and push
         uses: docker/build-push-action@v3
+        env:
+            DATABASE_CONNECTION: ${{ secrets.DATABASE_CONNECTION }}
         with:
           context: .
           platforms: linux/amd64,linux/arm64
